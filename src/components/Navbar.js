@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import './Navbar.css';
 
 
 class Navbar extends Component {
@@ -28,6 +29,9 @@ class Navbar extends Component {
                                 <NavLink exact className="nav-link" to="/sortingvisualizer">Sorting Visualizer</NavLink>
                             </li>
                         </ul>
+                        <form class="resume d-flex">
+                            <button class="resume btn btn-success">View Resume</button>
+                        </form>
                     </div>
                 </div>
             </nav>
