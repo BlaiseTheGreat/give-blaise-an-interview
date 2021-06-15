@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import Pdf from './Resume.pdf';
 import './Navbar.css';
+
 
 
 class Navbar extends Component {
@@ -29,9 +31,14 @@ class Navbar extends Component {
                                 <NavLink exact className="nav-link" to="/sortingvisualizer">Sorting Visualizer</NavLink>
                             </li>
                         </ul>
-                        <form class="resume d-flex">
+                        {/* <form class="resume d-flex">
                             <button class="resume btn btn-success">View Resume</button>
-                        </form>
+                        </form> */}
+                        <a className="resume" href={Pdf} without rel="noopener noreferrer" target="_blank">
+                            <button className="btn btn-success"trailingIcon="picture_as_pdf" label="Resume">
+                                View Resume
+                            </button>
+                        </a>
                     </div>
                 </div>
             </nav>
