@@ -1,5 +1,6 @@
-add redume page to resume button
 add comment page (mongodb) authenticate users so they can leave a comment
 make pictures on education and experience and about me page all the same size.
 make pictures on about me page clickable
 add page using an API somehow
+add other sorting algorithms
+fix sorting visualizer page breaking when going to different tab mid animation
