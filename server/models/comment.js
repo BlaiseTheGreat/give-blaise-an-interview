@@ -12,4 +12,4 @@ const commentSchema = new mongoose.Schema({
     }
 });
 
-mongoose.model("Comment", commentSchema  );
+mongoose.model("Comment", commentSchema);
