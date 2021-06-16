@@ -10,7 +10,7 @@ class Navbar extends Component {
         return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="/">GiveBlaiseAnInterview</a>
+                    <a className="navbar-brand" href="/">giveBlaiseAnInterview</a>
                     <button
                         className="navbar-toggler"
                         type="button"
@@ -32,6 +32,12 @@ class Navbar extends Component {
                             </li>
                             <li className="nav-item">
                                 <NavLink exact className="nav-link" to="/fullstackcomments">RESTful API</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink exact className="nav-link" to="/fullstackcomments/login">Log in</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink exact className="nav-link" to="/fullstackcomments/signup">Sign up </NavLink>
                             </li>
                         </ul>
                         {/* <form class="resume d-flex">

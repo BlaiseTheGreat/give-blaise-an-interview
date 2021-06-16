@@ -5,7 +5,8 @@ import AboutMe from '../pages/AboutMe/AboutMe';
 import EducationCard from '../pages/Education/EducationCard';
 import ExperienceCard from '../pages/Experience/ExperienceCard';
 import FullstackComments from '../pages/FullstackComments/FullstackComments';
-
+import Login from '../pages/FullstackComments/Login';
+import Signup from '../pages/FullstackComments/Signup';
 
 class Routes extends Component {
     render() {
@@ -31,6 +32,16 @@ class Routes extends Component {
                         exact
                         path='/fullstackcomments'
                         render={() => <FullstackComments />}
+                    />
+                    <Route
+                        exact
+                        path='/fullstackcomments/login'
+                        render={() => <Login />}
+                    />
+                    <Route
+                        exact
+                        path='/fullstackcomments/signup'
+                        render={() => <Signup />}
                     />
                     <Route
                         exact

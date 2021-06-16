@@ -1,3 +1,7 @@
 .resume {
     margin-left: auto;
 }
+
+.navbar-brand {
+    font-family: 'Roboto Mono', monospace;
+}
