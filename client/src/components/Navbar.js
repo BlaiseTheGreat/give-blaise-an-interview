@@ -30,6 +30,9 @@ class Navbar extends Component {
                             <li className="nav-item">
                                 <NavLink exact className="nav-link" to="/sortingvisualizer">Sorting Visualizer</NavLink>
                             </li>
+                            <li className="nav-item">
+                                <NavLink exact className="nav-link" to="/fullstackcomments">RESTful API</NavLink>
+                            </li>
                         </ul>
                         {/* <form class="resume d-flex">
                             <button class="resume btn btn-success">View Resume</button>

@@ -127,6 +127,7 @@ class SortingVisualizer extends Component {
 
         return (
             <div className="array-container">
+                <h1>Sorting Visualizer</h1>
                 <div>
                     {array.map((value, idx) => (
                         <div

@@ -4,6 +4,7 @@ import SortingVisualizer from '../pages/SortingVisualizer/SortingVisualizer';
 import AboutMe from '../pages/AboutMe/AboutMe';
 import EducationCard from '../pages/Education/EducationCard';
 import ExperienceCard from '../pages/Experience/ExperienceCard';
+import FullstackComments from '../pages/FullstackComments/FullstackComments';
 
 
 class Routes extends Component {
@@ -25,6 +26,11 @@ class Routes extends Component {
                         exact
                         path='/experience'
                         render={() => <ExperienceCard />}
+                    />
+                    <Route
+                        exact
+                        path='/fullstackcomments'
+                        render={() => <FullstackComments />}
                     />
                     <Route
                         exact
