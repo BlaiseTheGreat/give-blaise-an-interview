@@ -3,4 +3,6 @@ make pictures on education and experience and about me page all the same size.
 make pictures on about me page clickable
 add page using an API somehow
 add other sorting algorithms
-fix sorting visualizer page breaking when going to different tab mid animation
+be a good internet citizen on client image src (download images locally)
+hamburger doesnt open nav links
+make sorting page dynamic (less array bars on smaller screens)

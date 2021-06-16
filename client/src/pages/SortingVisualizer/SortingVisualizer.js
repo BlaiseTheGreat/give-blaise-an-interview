@@ -30,6 +30,14 @@ class SortingVisualizer extends Component {
         this.resetArray();
     }
 
+    componentWillUnmount() {
+        let id = window.setTimeout(function () { }, 0);
+
+        while (id--) {
+            window.clearTimeout(id); // will do nothing if no timeout with id is present
+        }
+    }
+
     resetArray() {
         const array = [];
         for (let i = 0; i < NUMBER_OF_ARRAY_BARS; i++) { //TODO FIX HARDCODED VALUES FOR NUM BARS AND BAR HEIGHT MAX
@@ -41,8 +49,10 @@ class SortingVisualizer extends Component {
     mergeSort() {
         const animations = getMergeSortAnimations(this.state.array);
         // console.log(animations);
+        //console.log(animations.length);
         for (let i = 0; i < animations.length; i++) {
             const arrayBars = document.getElementsByClassName('array-bar');
+            if (!arrayBars) return;
             const isColorChange = i % 3 !== 2;
             if (isColorChange) {
                 const [barOneIdx, barTwoIdx] = animations[i];
@@ -56,6 +66,7 @@ class SortingVisualizer extends Component {
             } else {
                 setTimeout(() => {
                     const [barOneIdx, newHeight] = animations[i];
+                    // if (!arrayBars[barOneIdx]) return; //Gunnar added with me to fix error with breaking when leaving
                     const barOneStyle = arrayBars[barOneIdx].style;
                     barOneStyle.height = `${newHeight}px`;
                 }, i * ANIMATION_SPEED_MS);
@@ -97,6 +108,7 @@ class SortingVisualizer extends Component {
                 if (animations[i][0] !== null) {
                     setTimeout(() => {
                         const [barOneIdx, barTwoIdx] = animations[i - 1];
+                        // if (!arrayBars[barOneIdx]) return; //Gunnar added with me to fix error with breaking when leaving
                         const barOneStyle = arrayBars[barOneIdx].style;
                         const barTwoStyle = arrayBars[barTwoIdx].style;
                         barOneStyle.height = `${animations[i][0]}px`;
