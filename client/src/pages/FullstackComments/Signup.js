@@ -35,6 +35,8 @@ const Signup = () => {
                 M.toast({html: data.message, classes:"#81c784 green lighten-2"});
                 history.push('/fullstackcomments/login');
             }
+        }).catch(err=>{
+            console.log(err);
         })
     }
 
