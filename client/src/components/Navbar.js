@@ -37,7 +37,10 @@ class Navbar extends Component {
                                 <NavLink exact className="nav-link" to="/fullstackcomments/login">Log in</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink exact className="nav-link" to="/fullstackcomments/signup">Sign up </NavLink>
+                                <NavLink exact className="nav-link" to="/fullstackcomments/signup">Sign up</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink exact className="nav-link" to="/fullstackcomments/createcomment">Create Comment</NavLink>
                             </li>
                         </ul>
                         {/* <form class="resume d-flex">

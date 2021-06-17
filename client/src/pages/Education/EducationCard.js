@@ -9,7 +9,7 @@ class EducationCard extends Component {
                 <h1 className="display-1">Education</h1>
                 <div className="EducationCard row justify-content-center">
                     <div className="col-11 col-lg-4">
-                        <div className="EducationCard-card card">
+                        <div className="EducationCard-card card hoverable">
                             <img className="card-img-top" src='https://www.siue.edu/news/2021/02/img/SIUE-campus-web.jpg' alt="SIUe Logo" />
                             <div className="card-body">
                                 <h2 className="card-title">Southern Illinois Univeristy of Edwardsville</h2>
@@ -29,7 +29,7 @@ class EducationCard extends Component {
                         </div>
                     </div>
                     <div className="col-11 col-lg-4">
-                        <div className="EducationCard-card card">
+                        <div className="EducationCard-card card hoverable">
                             <img className="card-img-top" src='https://teach.udemy.com/wp-content/uploads/2016/02/og-default.png' alt="SIUe Logo" />
                             <div className="card-body">
                                 <h2 className="card-title">Udemy.com (educational courses website)</h2>
@@ -49,7 +49,7 @@ class EducationCard extends Component {
                         </div>
                     </div>
                     <div className="col-11 col-lg-4">
-                        <div className="EducationCard-card card">
+                        <div className="EducationCard-card card hoverable ">
                             <img className="card-img-top" src='https://cdn.web.uta.edu/-/media/project/website/news/releases/2020/09/tower---reverse-angle.ashx?revision=af79b89f-1f16-47a6-b8f3-91940ab85d3b' alt="SIUe Logo" />
                             <div className="card-body">
                                 <h2 className="card-title">University of Texas at Arlington</h2>

@@ -8,7 +8,7 @@ class FullstackComments extends Component {
         return (
             <div className="FullstackComments">
 
-                <div class="card text-center">
+                <div class="card text-center hoverable">
                     <div class="card-body">
                         <h5 class="card-title"><span>M</span>ongoDB <span>E</span>xpress <span>R</span>eact <span>N</span>ode comment section</h5>
                         <p class="card-text">This sub-project makes use of the full MERN stack. MongoDB cloud atlas hosts the data,
@@ -28,7 +28,7 @@ class FullstackComments extends Component {
                 </div>
 
 
-                <div className="card mb-4 home-card">
+                <div className="card mb-4 home-card hoverable">
                     <h5 className="card-title">Blaise</h5>
                     <h6 className="card-subtitle mb-2 text-muted">Bell Flight</h6>
                     <hr/>
@@ -39,7 +39,7 @@ class FullstackComments extends Component {
                         <a href="#" class="btn btn-danger">Delete</a>
                     </div>
                 </div>
-                <div className="card mb-4 home-card">
+                <div className="card mb-4 home-card hoverable">
                     <h5 className="card-title">Blaise</h5>
                     <h6 className="card-subtitle mb-2 text-muted">Bell Flight</h6>
                     <hr/>
@@ -49,7 +49,7 @@ class FullstackComments extends Component {
                         <a href="#" class="btn btn-danger">Delete</a>
                     </div>
                 </div>
-                <div className="card mb-4 home-card">
+                <div className="card mb-4 home-card hoverable">
                     <h5 className="card-title">Blaise</h5>
                     <h6 className="card-subtitle mb-2 text-muted">Bell Flight</h6>
                     <hr/>

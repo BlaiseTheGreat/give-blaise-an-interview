@@ -7,6 +7,7 @@ import ExperienceCard from '../pages/Experience/ExperienceCard';
 import FullstackComments from '../pages/FullstackComments/FullstackComments';
 import Login from '../pages/FullstackComments/Login';
 import Signup from '../pages/FullstackComments/Signup';
+import CreateComment from '../pages/FullstackComments/CreateComment';
 
 class Routes extends Component {
     render() {
@@ -42,6 +43,11 @@ class Routes extends Component {
                         exact
                         path='/fullstackcomments/signup'
                         render={() => <Signup />}
+                    />
+                    <Route
+                        exact
+                        path='/fullstackcomments/createcomment'
+                        render={() => <CreateComment />}
                     />
                     <Route
                         exact

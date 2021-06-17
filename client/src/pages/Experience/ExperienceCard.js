@@ -9,7 +9,7 @@ class ExperienceCard extends Component {
                 <div className="ExperienceCard row justify-content-center">
                     <h1 className="display-1">Experience</h1>
                     <div className="col-11 col-lg-5">
-                        <div className="ExperienceCard-card card">
+                        <div className="ExperienceCard-card card hoverable">
                             <img className="card-img-top" src="https://img.intelligent-aerospace.com/files/base/ebm/ias/image/2020/09/AH_1Z_and_UH_1Y_8_Sept_2020.5f57408442cae.5f5e829bc5a19.png?auto=format&w=720" alt="alt" />
                             <div className="card-body">
                                 <h2 className="card-title">Bell Flight</h2>
@@ -31,7 +31,7 @@ class ExperienceCard extends Component {
                         </div>
                     </div>
                     <div className="col-11 col-lg-5">
-                        <div className="ExperienceCard-card card">
+                        <div className="ExperienceCard-card card hoverable">
                             <img className="card-img-top" src="https://d3lcr32v2pp4l1.cloudfront.net/Pictures/1024x536/1/5/2/69152_bell-360-invictus_78944.jpg" alt="alt" />
                             <div className="card-body">
                                 <h2 className="card-title">Bell Flight</h2>
