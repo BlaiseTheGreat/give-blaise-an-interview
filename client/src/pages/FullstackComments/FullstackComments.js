@@ -3,8 +3,37 @@ import { Link } from 'react-router-dom';
 import './FullstackComments.css';
 
 class FullstackComments extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {user: JSON.parse(localStorage.getItem("user"))}
+    }
+    
 
     render() {
+        const commentNavButtons = this.state.user ? 
+        <div className="loggedInButtons">
+            <span>Welcome, {this.state.user.username}! </span>
+            <Link to="fullstackcomments/createcomment" className="btn btn-primary">Create comment</Link>
+            <button 
+                className="btn btn-primary"
+                onClick={()=> {
+                    localStorage.removeItem("user");
+                    localStorage.removeItem("jwt");
+                    this.setState({
+                        user: null
+                    });
+                }}
+                >
+                    log out
+            </button>
+        </div>
+        :
+        <div className="loggedOutButtons">
+            <Link to="fullstackcomments/login" className="btn btn-primary">Log in</Link>
+            <Link to="fullstackcomments/signup" className="btn btn-primary">Sign up</Link>
+        </div>
+        
+
         return (
             <div className="FullstackComments">
 
@@ -13,11 +42,9 @@ class FullstackComments extends Component {
                         <h5 class="card-title"><span>M</span>ongoDB <span>E</span>xpress <span>R</span>eact <span>N</span>ode comment section</h5>
                         <p class="card-text">This sub-project makes use of the full MERN stack. MongoDB cloud atlas hosts the data,
                         Express and Node.js are used to provide the server/ API, and React.js is used as the front end.</p>
-                        {/* <p class="card-text">Sign</p> */}
-                        <a href="#" class="btn btn-primary">Create comment</a>
-                        <Link to="fullstackcomments/login" class="btn btn-primary">Log in</Link>
-                        <a href="#" class="btn btn-primary">Log out</a>
-                        <Link to="fullstackcomments/signup" class="btn btn-primary">Sign up</Link>
+                        
+                        {commentNavButtons}
+                        
 
                     </div>
                     <div class="card-footer text-muted">
