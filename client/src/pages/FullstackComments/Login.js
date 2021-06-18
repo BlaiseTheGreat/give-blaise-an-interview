@@ -29,8 +29,10 @@ const Login = () => {
             if(data.error){
                 M.toast({html: data.error, classes:"#ef5350 red lighten-1"});
             } else {
+                localStorage.setItem("jwt", data.token);
+                localStorage.setItem("user", JSON.stringify(data.user));
                 M.toast({html: "Signed in successfully!", classes:"#81c784 green lighten-2"});
-                history.push('/fullstackcomments/login');
+                history.push('/fullstackcomments');
             }
         }).catch(err=>{
             console.log(err);
