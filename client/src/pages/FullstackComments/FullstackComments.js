@@ -10,7 +10,7 @@ class FullstackComments extends Component {
             user: JSON.parse(localStorage.getItem("user")),
             comments: []
         }
-
+        this.deleteComment = this.deleteComment.bind(this);
 
     }
 
@@ -29,6 +29,18 @@ class FullstackComments extends Component {
         this.setState({
             comments: res.data.comments
         })
+    }
+
+
+    async deleteComment(commentId) {
+        await fetch(`/${commentId}`, {
+            method: "delete",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + localStorage.getItem("jwt")
+            }
+        })
+        this.getComments();
     }
 
     render() {
@@ -63,21 +75,20 @@ class FullstackComments extends Component {
 
 
 
-
         return (
             <div className="FullstackComments">
 
-                <div class="card text-center hoverable">
-                    <div class="card-body">
-                        <h5 class="card-title"><span>M</span>ongoDB <span>E</span>xpress <span>R</span>eact <span>N</span>ode comment section</h5>
-                        <p class="card-text">This sub-project makes use of the full MERN stack. MongoDB cloud atlas hosts the data,
+                <div className="card text-center hoverable">
+                    <div className="card-body">
+                        <h5 className="card-title"><span>M</span>ongoDB <span>E</span>xpress <span>R</span>eact <span>N</span>ode comment section</h5>
+                        <p className="card-text">This sub-project makes use of the full MERN stack. MongoDB cloud atlas hosts the data,
                             Express and Node.js are used to provide the server/ API, and React.js is used as the front end.</p>
 
                         {commentNavButtons}
 
 
                     </div>
-                    <div class="card-footer text-muted">
+                    <div className="card-footer text-muted">
                         <p>Sign up and leave a comment! Full CRUD abilities of data from a custom RESTful API!</p>
                         <p>Let me know what you liked, didn't like, or what I could improve on before you'd consider me for a job! :)</p>
 
@@ -94,33 +105,29 @@ class FullstackComments extends Component {
                             <h5 className="card-title">{c.postedBy.username}</h5>
                             <h6 className="card-subtitle mb-2 text-muted">{c.postedBy.company}</h6>
                             <p className="card-text">{c.body}</p>
-                            <hr />
                             <div>
-                                <a href="#" class="btn btn-info">Edit</a>
-                                <a href="#" class="btn btn-danger">Delete</a>
+                                {this.state.user && this.state.user._id === c.postedBy._id ?
+                                <div className="card-footer text-muted">
+                                    <button 
+                                        className="btn btn-info"
+                                        >
+                                        Edit
+                                    </button>
+                                    <button 
+                                        className="btn btn-danger"
+                                        onClick={()=>this.deleteComment(c._id)}
+                                        >
+                                        Delete
+                                    </button>
+                                </div>
+                                    :
+                                    ""
+                                }
+                                
                             </div>
                         </div>
                     ))}
                 </div>
-
-
-
-
-
-
-
-
-                {/* <div className="card mb-4 home-card hoverable">
-                    <h5 className="card-title">Blaise</h5>
-                    <h6 className="card-subtitle mb-2 text-muted">Bell Flight</h6>
-                    <hr />
-                    <p className="card-text">Hi so basically this rules and i wanna give you a job</p>
-                    <hr />
-                    <div>
-                        <a href="#" class="btn btn-info">Edit</a>
-                        <a href="#" class="btn btn-danger">Delete</a>
-                    </div>
-                </div> */}
             </div>
         )
     }

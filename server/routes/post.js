@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const requireLogin = require('../middleware/requireLogin');
+const isCommentAuthor = require('../middleware/isCommentAuthor');
 const Comment = mongoose.model("Comment");
 
 
@@ -33,6 +34,12 @@ router.post('/createcomment', requireLogin, (req, res) => {
         .catch(err => {
             console.log(err);
         })
+})
+
+router.delete('/:commentId', requireLogin, isCommentAuthor ,async (req, res) => {
+    const { commentId } = req.params
+    await Comment.findByIdAndDelete(commentId);
+    return res.status(200).json({ message: "Comment deleted" });    
 })
 
 
