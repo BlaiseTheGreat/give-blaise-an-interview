@@ -89,7 +89,7 @@ class FullstackComments extends Component {
 
 
                 <div className="Comments">
-                    {this.state.comments.map(c => (
+                    {this.state.comments.slice(0).reverse().map(c => (
                         <div key={c._id} className="card mb-4 home-card hoverable">
                             <h5 className="card-title">{c.postedBy.username}</h5>
                             <h6 className="card-subtitle mb-2 text-muted">{c.postedBy.company}</h6>
