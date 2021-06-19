@@ -36,10 +36,28 @@ router.post('/createcomment', requireLogin, (req, res) => {
         })
 })
 
-router.delete('/:commentId', requireLogin, isCommentAuthor ,async (req, res) => {
-    const { commentId } = req.params
+router.delete('/:commentId', requireLogin, isCommentAuthor, async (req, res) => {
+    const { commentId } = req.params;
     await Comment.findByIdAndDelete(commentId);
-    return res.status(200).json({ message: "Comment deleted" });    
+    return res.status(200).json({ message: "Comment deleted" });
+})
+
+router.get('/:commentId', requireLogin, isCommentAuthor, (req, res) => {
+    // console.log("in get commentID")
+    const { commentId } = req.params;
+    Comment.findById(commentId)
+        .then(comment => {
+            res.json({ comment });
+        })
+        .catch(err => {
+            console.log(err);
+        })
+
+})
+
+router.put('/:commentId', requireLogin, isCommentAuthor, async (req, res) => {
+    const { commentId } = req.params;
+    // await Comment.findByIdAndUpdate(commentId, {body: })
 })
 
 

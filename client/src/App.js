@@ -17,7 +17,7 @@ function App() {
     const user = localStorage.getItem("user");
     // console.log(user);
     if(user){
-      history.push('/fullstackcomments');
+      // history.push('/fullstackcomments');
       dispatch({type: "USER", payload:user});
     }
   }, []);

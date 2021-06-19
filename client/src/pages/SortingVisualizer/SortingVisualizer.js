@@ -43,6 +43,11 @@ class SortingVisualizer extends Component {
         for (let i = 0; i < NUMBER_OF_ARRAY_BARS; i++) { //TODO FIX HARDCODED VALUES FOR NUM BARS AND BAR HEIGHT MAX
             array.push(randomIntFromInterval(5, 730));
         }
+        let id = window.setTimeout(function () { }, 0);
+
+        while (id--) {
+            window.clearTimeout(id); // will do nothing if no timeout with id is present
+        }
         this.setState({ array });
     }
 

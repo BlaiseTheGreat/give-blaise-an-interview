@@ -30,8 +30,9 @@ h4 {
     padding-top:15px;
 }
 
-span {
-    font-weight: bold
+.MERN {
+    font-weight: bold;
+    font-size: 30px;
 }
 
 .home-card {
@@ -61,4 +62,12 @@ span {
     top: 90px;
     right: 30px;
     left: auto !important;
+}
+
+.welcome{
+    font-size: 30px;
+}
+
+.name {
+    font-weight: bold;
 }

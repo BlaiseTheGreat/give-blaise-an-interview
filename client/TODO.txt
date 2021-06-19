@@ -10,3 +10,5 @@ add date into comment model on server side
 render date of comment on comment card for UI
 add ability to like other comments
 fix toast styling
+fix logo route on nav bar
+implement edit button on fullstackcomments

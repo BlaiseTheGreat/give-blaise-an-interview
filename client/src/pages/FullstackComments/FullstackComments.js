@@ -8,10 +8,9 @@ class FullstackComments extends Component {
         super(props);
         this.state = {
             user: JSON.parse(localStorage.getItem("user")),
-            comments: []
+            comments: [],
+            openEditForm: []
         }
-        this.deleteComment = this.deleteComment.bind(this);
-
     }
 
 
@@ -25,9 +24,14 @@ class FullstackComments extends Component {
                 "Content-Type": "application/json"
             }
         });
-        // console.log(res.data.comments[0]);
+        // console.log(res.data.comments.length);
+        let editArrayState = [];
+        for(let i = 0; i < res.data.comments.length; i++) {
+            editArrayState.push(false);
+        }
         this.setState({
-            comments: res.data.comments
+            comments: res.data.comments,
+            openEditForm: editArrayState
         })
     }
 
@@ -43,10 +47,27 @@ class FullstackComments extends Component {
         this.getComments();
     }
 
+    // async updateComment(commentId) {
+    //     await fetch(`/${commentId}`, {
+    //         method: 'put',
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //             "Authorization": "Bearer " + localStorage.getItem("jwt")
+    //         }
+    //     })
+    //     this.getComments();
+    // }
+
+    // openEditForm(commentId){
+
+    // }
+
+    
+
     render() {
         const commentNavButtons = this.state.user ?
             <div className="loggedInButtons">
-                <span>Welcome, {this.state.user.username}! </span>
+                <span className="welcome">Welcome, <span className="name">{this.state.user.username}</span>! </span>
                 <Link to="fullstackcomments/createcomment" className="btn btn-primary">Create comment</Link>
                 <button
                     className="btn btn-primary"
@@ -80,7 +101,7 @@ class FullstackComments extends Component {
 
                 <div className="card text-center hoverable">
                     <div className="card-body">
-                        <h5 className="card-title"><span>M</span>ongoDB <span>E</span>xpress <span>R</span>eact <span>N</span>ode comment section</h5>
+                        <h5 className="card-title"><span className="MERN">M</span>ongoDB <span className="MERN">E</span>xpress <span className="MERN">R</span>eact <span className="MERN">N</span>ode comment section</h5>
                         <p className="card-text">This sub-project makes use of the full MERN stack. MongoDB cloud atlas hosts the data,
                             Express and Node.js are used to provide the server/ API, and React.js is used as the front end.</p>
 
@@ -104,6 +125,7 @@ class FullstackComments extends Component {
                         <div key={c._id} className="card mb-4 home-card hoverable">
                             <h5 className="card-title">{c.postedBy.username}</h5>
                             <h6 className="card-subtitle mb-2 text-muted">{c.postedBy.company}</h6>
+
                             <p className="card-text">{c.body}</p>
                             <div>
                                 {this.state.user && this.state.user._id === c.postedBy._id ?

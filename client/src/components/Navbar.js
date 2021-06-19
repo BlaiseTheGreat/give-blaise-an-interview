@@ -12,7 +12,7 @@ class Navbar extends Component {
         return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="/">giveBlaiseAnInterview</a>
+                    <NavLink className="navbar-brand" to="/">giveBlaiseAnInterview</NavLink>
                     <button
                         className="navbar-toggler"
                         type="button"
