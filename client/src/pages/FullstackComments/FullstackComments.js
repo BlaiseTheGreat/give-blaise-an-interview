@@ -130,11 +130,11 @@ class FullstackComments extends Component {
                             <div>
                                 {this.state.user && this.state.user._id === c.postedBy._id ?
                                 <div className="card-footer text-muted">
-                                    <button 
+                                    <Link 
                                         className="btn btn-info"
-                                        >
-                                        Edit
-                                    </button>
+                                        to={`fullstackcomments/edit/${c._id}`} >
+                                        edit
+                                    </Link>
                                     <button 
                                         className="btn btn-danger"
                                         onClick={()=>this.deleteComment(c._id)}

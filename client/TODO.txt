@@ -1,4 +1,4 @@
-add comment page (mongodb) authenticate users so they can leave a comment
+
 make pictures on education and experience and about me page all the same size.
 make pictures on about me page clickable
 add page using an API somehow
@@ -8,7 +8,5 @@ hamburger doesnt open nav links
 make sorting page dynamic (less array bars on smaller screens)
 add date into comment model on server side
 render date of comment on comment card for UI
-add ability to like other comments
+
 fix toast styling
-fix logo route on nav bar
-implement edit button on fullstackcomments

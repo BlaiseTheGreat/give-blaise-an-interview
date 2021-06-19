@@ -56,8 +56,8 @@ router.get('/:commentId', requireLogin, isCommentAuthor, (req, res) => {
 })
 
 router.put('/:commentId', requireLogin, isCommentAuthor, async (req, res) => {
-    console.log("in put route")
-    console.log(req.body.body);
+    // console.log("in put route")
+    // console.log(req.body.body);
     const { commentId } = req.params;
     await Comment.findByIdAndUpdate(commentId, {body: req.body.body});
     
