@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './FullstackComments.css';
 import M from 'materialize-css';
 import { useHistory, useParams } from 'react-router-dom';
+import axios from 'axios';
 
 
 const EditComment = () => {
@@ -21,16 +22,14 @@ const EditComment = () => {
         }).then(res => res.json())
             .then(data => {
                 const jsonData = data;
-                // const comment = JSON.parse(data);
-                // console.log(jsonData);
-                // console.log(jsonData.comment);
-                // console.log(jsonData.comment.body);
-                
                 setBody(jsonData.comment.body);
-                // console.log({body});
-                // console.log(comment);
             })
     }, [commentId])
+
+    const UpdateComment = () => {
+        console.log("updating data");
+
+    }
 
     return (
         <div className="create-comment-card card input-field CreateComment hoverable">
@@ -42,7 +41,7 @@ const EditComment = () => {
             />
             <button
                 className="login-btn btn waves-effect waves-light #64b5f6 blue lighten-2"
-                onClick={() => console.log("dummy method")}
+                onClick={() => UpdateComment()}
             >
                 Submit
             </button>
