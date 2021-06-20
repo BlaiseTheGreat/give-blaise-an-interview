@@ -1,12 +1,17 @@
 .array-container {
     position: absolute;
     left: 100px;
-    /* top: 100px; */
+     /* top: 100px;
+    text-align: center; */
   }
+
+.array-container-mobile {
+  text-align: center;
+}
   
   .array-bar {
     width: 2px;
-    background-color: turquoise;
+    background-color: #2ec4b6;
     display: inline-block;
     margin: 0 1px;
   }

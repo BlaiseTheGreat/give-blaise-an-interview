@@ -4,6 +4,7 @@ import SortingVisualizer from '../pages/SortingVisualizer/SortingVisualizer';
 import AboutMe from '../pages/AboutMe/AboutMe';
 import EducationCard from '../pages/Education/EducationCard';
 import ExperienceCard from '../pages/Experience/ExperienceCard';
+import Skills from '../pages/Skills/Skills';
 import FullstackComments from '../pages/FullstackComments/FullstackComments';
 import Login from '../pages/FullstackComments/Login';
 import Signup from '../pages/FullstackComments/Signup';
@@ -32,6 +33,11 @@ const Routes = () => {
                     exact
                     path='/experience'
                     render={() => <ExperienceCard />}
+                />
+                <Route
+                    exact
+                    path='/skills'
+                    render={() => <Skills />}
                 />
                 <Route
                     exact

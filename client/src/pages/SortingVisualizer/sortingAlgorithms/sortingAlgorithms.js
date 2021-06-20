@@ -1,3 +1,8 @@
+// the code on this page comes from following this tutorial on youtube:
+// https://www.youtube.com/watch?v=pFXYym4Wbkc
+
+
+
 export function getMergeSortAnimations(array) {
     const animations = [];
     if (array.length <= 1) return array;

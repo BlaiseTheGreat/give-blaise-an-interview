@@ -1,5 +1,6 @@
 .About img {
-    width: 75%;
+    width: 80%;
+    height: 63%;
     filter: grayscale();
     border-radius: 50%;
     -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.39); 

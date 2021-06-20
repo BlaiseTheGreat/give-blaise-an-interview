@@ -13,7 +13,8 @@ let NUMBER_OF_ARRAY_BARS = 20; // number will be overwritten by dynamic values n
 let HEIGHT_OF_ARRAY_BARS = 730; // number will be overwritten by dynamic values now
 
 // This is the main color of the array bars.
-const PRIMARY_COLOR = 'turquoise';
+// const PRIMARY_COLOR = 'turquoise';
+const PRIMARY_COLOR = '#2ec4b6';
 
 // This is the color of array bars that are being compared throughout the animations.
 const SECONDARY_COLOR = 'red';
@@ -51,7 +52,8 @@ class SortingVisualizer extends Component {
         window.removeEventListener('resize', this.updateWindowDimensions);
       }
 
-    resetArray() {
+    async resetArray() {
+        await this.updateWindowDimensions();
         const array = [];
         console.log(this.state.width);
         NUMBER_OF_ARRAY_BARS = this.state.width/4 - 50;
@@ -147,7 +149,8 @@ class SortingVisualizer extends Component {
         const { array } = this.state;
 
         return (
-            <div className="array-container">
+            <div className={this.state.width < 500 ? "array-container-mobile" : "array-container"}>
+            {/* // <div className="array-container"> */}
                 <h1>Sorting Visualizer</h1>
                 <div>
                     {array.map((value, idx) => (
