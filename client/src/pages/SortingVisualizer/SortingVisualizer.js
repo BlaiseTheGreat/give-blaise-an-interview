@@ -3,11 +3,14 @@ import { getMergeSortAnimations } from './sortingAlgorithms/sortingAlgorithms.js
 import { getBubbleSortAnimations } from './sortingAlgorithms/bubbleSortAnimation';
 import './SortingVisualizer.css'
 
+
 // Change this value for the speed of the animations.
 const ANIMATION_SPEED_MS = 1;
 
 // Change this value for the number of bars (value) in the array.
-const NUMBER_OF_ARRAY_BARS = 430; //430
+let NUMBER_OF_ARRAY_BARS = 20; // number will be overwritten by dynamic values now
+
+let HEIGHT_OF_ARRAY_BARS = 730; // number will be overwritten by dynamic values now
 
 // This is the main color of the array bars.
 const PRIMARY_COLOR = 'turquoise';
@@ -19,14 +22,19 @@ class SortingVisualizer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            array: []
+            array: [],
+            width: window.innerWidth,
+            height: window.innerHeight
         };
         this.resetArray = this.resetArray.bind(this);
         this.mergeSort = this.mergeSort.bind(this);
         this.bubbleSort = this.bubbleSort.bind(this);
+        this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     }
 
     componentDidMount() {
+        this.updateWindowDimensions();
+        window.addEventListener('resize', this.updateWindowDimensions);
         this.resetArray();
     }
 
@@ -38,10 +46,18 @@ class SortingVisualizer extends Component {
         }
     }
 
+    updateWindowDimensions() {
+        this.setState({ width: window.innerWidth, height: window.innerHeight });
+        window.removeEventListener('resize', this.updateWindowDimensions);
+      }
+
     resetArray() {
         const array = [];
+        console.log(this.state.width);
+        NUMBER_OF_ARRAY_BARS = this.state.width/4 - 50;
+        HEIGHT_OF_ARRAY_BARS = this.state.height - 200;
         for (let i = 0; i < NUMBER_OF_ARRAY_BARS; i++) { //TODO FIX HARDCODED VALUES FOR NUM BARS AND BAR HEIGHT MAX
-            array.push(randomIntFromInterval(5, 730));
+            array.push(randomIntFromInterval(5, HEIGHT_OF_ARRAY_BARS));
         }
         let id = window.setTimeout(function () { }, 0);
 

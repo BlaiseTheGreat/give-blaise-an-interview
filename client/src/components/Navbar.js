@@ -35,7 +35,7 @@ class Navbar extends Component {
                             <li className="nav-item">
                                 <NavLink exact className="nav-link" to="/fullstackcomments">RESTful API</NavLink>
                             </li>
-                            <li className="nav-item">
+                            {/* <li className="nav-item">
                                 <NavLink exact className="nav-link" to="/fullstackcomments/login">Log in</NavLink>
                             </li>
                             <li className="nav-item">
@@ -43,7 +43,7 @@ class Navbar extends Component {
                             </li>
                             <li className="nav-item">
                                 <NavLink exact className="nav-link" to="/fullstackcomments/createcomment">Create Comment</NavLink>
-                            </li>
+                            </li> */}
                         </ul>
                         {/* <form class="resume d-flex">
                             <button class="resume btn btn-success">View Resume</button>

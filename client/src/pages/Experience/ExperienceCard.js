@@ -23,7 +23,7 @@ class ExperienceCard extends Component {
                                     flight computers, primarily using 
                                     C#/ Microsoft Access on the back end and LabView 
                                     on the front end. Once completed, new testing module will take total
-                                    software/ hardware testing procedure of flight computeres from ~2800 man hours to ~300 hours,
+                                    software/ hardware testing procedure of flight computers from ~2800 man hours to ~300 hours,
                                     allowing software updates to be tested and deployed much faster to existing aircraft
                                     in the field.</p>
                                 </li>

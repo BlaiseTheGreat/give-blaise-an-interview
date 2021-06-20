@@ -8,5 +8,4 @@ hamburger doesnt open nav links
 make sorting page dynamic (less array bars on smaller screens)
 add date into comment model on server side
 render date of comment on comment card for UI
-
 fix toast styling
