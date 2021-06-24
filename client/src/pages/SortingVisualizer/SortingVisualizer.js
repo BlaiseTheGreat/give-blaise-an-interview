@@ -158,7 +158,7 @@ class SortingVisualizer extends Component {
                 delayIdx: this.state.delayIdx - 1,
             })
         }
-        if(!goFaster && this.state.delayIdx < speedsArray.length - 1) {
+        if (!goFaster && this.state.delayIdx < speedsArray.length - 1) {
             await this.setState({
                 delayIdx: this.state.delayIdx + 1
             })
@@ -204,21 +204,29 @@ class SortingVisualizer extends Component {
                 <div className="SpeedButtons">
                     <button
                         className=" btn btn-danger"
-                        onClick={ () => {
+                        onClick={() => {
                             this.incrementSortSpeed(false);
                         }}>
                         -
                     </button>
                     <button
                         className=" btn btn-success"
-                        onClick={ () => {
+                        onClick={() => {
                             this.incrementSortSpeed(true);
                         }}>
                         +
                     </button>
                 </div>
                 <div>
-                Sort Speed: <span>{this.state.delayName}</span>
+                    Sort Speed: <span>{this.state.delayName}</span>
+                </div>
+                <div class="card hoverable text-center">
+                    <div class="card-header">
+                        Key Points in This Project
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">For this project, my goal was to demonstrate an understanding of: using stateful React components, the importance of Big O time complexities in software engineering, and basic DOM manipulation.</p>
+                    </div>
                 </div>
             </div>
         );

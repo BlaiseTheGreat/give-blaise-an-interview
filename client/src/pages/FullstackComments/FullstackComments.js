@@ -150,6 +150,18 @@ class FullstackComments extends Component {
                         </div>
                     ))}
                 </div>
+                <div class="card hoverable text-center">
+                    <div class="card-header">
+                        Key Points in This Project
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">For this project, my goal was to demonstrate an 
+                        understanding of: Full creation, deletion, editing, and reading of 
+                        data stored in a cloud based database through a custom made API/ server, 
+                        Using React to build a stateful user interface, user authentication and validation, 
+                        as well as allowing recruiters to leave a comment if they so choose to do so.</p>
+                    </div>
+                </div>
             </div>
         )
     }
