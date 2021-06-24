@@ -5,7 +5,7 @@ import './SortingVisualizer.css'
 
 
 // Change this value for the speed of the animations.
-const ANIMATION_SPEED_MS = 1;
+const ANIMATION_SPEED_DELAY = 1;
 
 // Change this value for the number of bars (value) in the array.
 let NUMBER_OF_ARRAY_BARS = 20; // number will be overwritten by dynamic values now
@@ -19,13 +19,17 @@ const PRIMARY_COLOR = '#2ec4b6';
 // This is the color of array bars that are being compared throughout the animations.
 const SECONDARY_COLOR = 'red';
 
+
 class SortingVisualizer extends Component {
     constructor(props) {
         super(props);
         this.state = {
             array: [],
             width: window.innerWidth,
-            height: window.innerHeight
+            height: window.innerHeight,
+            delay: 1,
+            delayIdx: 2,
+            delayName: "Medium"
         };
         this.resetArray = this.resetArray.bind(this);
         this.mergeSort = this.mergeSort.bind(this);
@@ -50,14 +54,14 @@ class SortingVisualizer extends Component {
     updateWindowDimensions() {
         this.setState({ width: window.innerWidth, height: window.innerHeight });
         window.removeEventListener('resize', this.updateWindowDimensions);
-      }
+    }
 
     async resetArray() {
         await this.updateWindowDimensions();
         const array = [];
         console.log(this.state.width);
-        NUMBER_OF_ARRAY_BARS = this.state.width/4 - 50;
-        HEIGHT_OF_ARRAY_BARS = this.state.height - 200;
+        NUMBER_OF_ARRAY_BARS = this.state.width / 4 - 50;
+        HEIGHT_OF_ARRAY_BARS = this.state.height - 270;
         for (let i = 0; i < NUMBER_OF_ARRAY_BARS; i++) { //TODO FIX HARDCODED VALUES FOR NUM BARS AND BAR HEIGHT MAX
             array.push(randomIntFromInterval(5, HEIGHT_OF_ARRAY_BARS));
         }
@@ -70,6 +74,8 @@ class SortingVisualizer extends Component {
     }
 
     mergeSort() {
+
+
         const animations = getMergeSortAnimations(this.state.array);
         // console.log(animations);
         //console.log(animations.length);
@@ -85,14 +91,14 @@ class SortingVisualizer extends Component {
                 setTimeout(() => {
                     barOneStyle.backgroundColor = color;
                     barTwoStyle.backgroundColor = color;
-                }, i * ANIMATION_SPEED_MS);
+                }, i * this.state.delay);
             } else {
                 setTimeout(() => {
                     const [barOneIdx, newHeight] = animations[i];
                     // if (!arrayBars[barOneIdx]) return; //Gunnar added with me to fix error with breaking when leaving
                     const barOneStyle = arrayBars[barOneIdx].style;
                     barOneStyle.height = `${newHeight}px`;
-                }, i * ANIMATION_SPEED_MS);
+                }, i * this.state.delay);
             }
         }
     }
@@ -106,7 +112,6 @@ class SortingVisualizer extends Component {
         // console.log(bubbleSortedArray);
         // console.log(javaScriptSortedArray);
 
-
         const animations = getBubbleSortAnimations(this.state.array);
         for (let i = 0; i < animations.length; i++) {
             // console.log(animations[i]);
@@ -118,7 +123,7 @@ class SortingVisualizer extends Component {
                 setTimeout(() => {
                     barOneStyle.backgroundColor = SECONDARY_COLOR;
                     barTwoStyle.backgroundColor = SECONDARY_COLOR;
-                }, i * ANIMATION_SPEED_MS);
+                }, i * this.state.delay);
             } else if (i % 3 === 2) { //turn the two red elements back to blue
                 const [barOneIdx, barTwoIdx] = animations[i];
                 const barOneStyle = arrayBars[barOneIdx].style;
@@ -126,7 +131,7 @@ class SortingVisualizer extends Component {
                 setTimeout(() => {
                     barOneStyle.backgroundColor = PRIMARY_COLOR;
                     barTwoStyle.backgroundColor = PRIMARY_COLOR;
-                }, i * ANIMATION_SPEED_MS);
+                }, i * this.state.delay);
             } else { // check if we need to swap height
                 if (animations[i][0] !== null) {
                     setTimeout(() => {
@@ -136,12 +141,33 @@ class SortingVisualizer extends Component {
                         const barTwoStyle = arrayBars[barTwoIdx].style;
                         barOneStyle.height = `${animations[i][0]}px`;
                         barTwoStyle.height = `${animations[i][1]}px`;
-                    }, i * ANIMATION_SPEED_MS);
+                    }, i * this.state.delay);
                 }
 
             }
         }
 
+    }
+
+    async incrementSortSpeed(goFaster) { //if true, go faster / make delay lower
+        const speedsArray = [.1, .5, 1, 5, 10]; // 9 speeds
+        const speedNamesArray = ["Fastest", "Fast", "Medium", "Slower", "Slowest"];
+
+        if (goFaster && this.state.delayIdx > 0) {
+            await this.setState({
+                delayIdx: this.state.delayIdx - 1,
+            })
+        }
+        if(!goFaster && this.state.delayIdx < speedsArray.length - 1) {
+            await this.setState({
+                delayIdx: this.state.delayIdx + 1
+            })
+        }
+        this.setState({
+            delayName: speedNamesArray[this.state.delayIdx],
+            delay: speedsArray[this.state.delayIdx]
+        })
+        this.resetArray();
     }
 
 
@@ -150,7 +176,6 @@ class SortingVisualizer extends Component {
 
         return (
             <div className={this.state.width < 500 ? "array-container-mobile" : "array-container"}>
-            {/* // <div className="array-container"> */}
                 <h1>Sorting Visualizer</h1>
                 <div>
                     {array.map((value, idx) => (
@@ -176,10 +201,30 @@ class SortingVisualizer extends Component {
                     onClick={this.bubbleSort}>
                     Bubble Sort
                 </button>
+                <div className="SpeedButtons">
+                    <button
+                        className=" btn btn-danger"
+                        onClick={ () => {
+                            this.incrementSortSpeed(false);
+                        }}>
+                        -
+                    </button>
+                    <button
+                        className=" btn btn-success"
+                        onClick={ () => {
+                            this.incrementSortSpeed(true);
+                        }}>
+                        +
+                    </button>
+                </div>
+                <div>
+                Sort Speed: <span>{this.state.delayName}</span>
+                </div>
             </div>
         );
     }
 }
+
 
 export default SortingVisualizer;
 

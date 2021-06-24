@@ -8,11 +8,25 @@
     transition: 0.4s filter ease;
 }
 
+.headshot{
+  width: 17em;
+  height: 17em;
+  filter: grayscale();
+  border-radius: 50%;
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.39); 
+  box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.39);
+  transition: 0.4s filter ease;
+}
+
 .About:hover img{
     filter: none;
 }
 
-.About .underline {
+.headshot:hover{
+  filter: none;
+}
+
+.underline {
     text-decoration: none;
     border: 4px solid transparent;
     display: inline-block;
@@ -45,3 +59,15 @@
     top: 34px;
     left: 0;
   }
+
+  .Me:hover .underline::after {
+    width: 100%;
+    top: 34px;
+    left: 0;
+  }
+
+  /* .headshot {
+    width: 17em;
+    height: 17em;
+    border-radius: 50%;
+  } */

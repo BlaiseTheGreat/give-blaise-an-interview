@@ -9,3 +9,5 @@ render date of comment on comment card for UI
 fix toast styling
 make skills page 3 cards --> worked with recently, worked with in the past, looking for these types of positions
 add speed state for sorting page
+add about this project to bottom of sorting visualizer
+add headshot to about me page and a little bio and github link and linkdin link

@@ -110,8 +110,8 @@ class FullstackComments extends Component {
 
                     </div>
                     <div className="card-footer text-muted">
-                        <p>Sign up and leave a comment! Full CRUD abilities of data from a custom RESTful API!</p>
-                        <p>Let me know what you liked, didn't like, or what I could improve on before you'd consider me for a job! :)</p>
+                        <p>Sign up and leave a comment! <span className="name">Full CRUD</span> abilities of data from a custom <span className="name">RESTful API</span>!</p>
+                        <p>Let me know what you liked, didn't like, or what you would like to see more of before giving me an interview! :)</p>
 
                     </div>
                 </div>

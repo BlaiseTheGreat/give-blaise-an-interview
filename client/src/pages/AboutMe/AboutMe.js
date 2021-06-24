@@ -10,7 +10,7 @@ class AboutMe extends Component {
                 <div className="row">
                     <div className="About col-lg-4 text-center">
                         <Link to="/education">
-                            <img  src="https://www.siue.edu/news/2021/02/img/SIUE-campus-web.jpg" alt="SIUe Logo" />
+                            <img src="https://www.siue.edu/news/2021/02/img/SIUE-campus-web.jpg" alt="SIUe Logo" />
                         </Link>
                         <h3 className="mt-3">
                             <Link
@@ -47,8 +47,25 @@ class AboutMe extends Component {
                             </Link>
                         </h3>
                     </div>
-
                 </div>
+                {/* <div className="row">
+                    <div className="col-lg-8 text-center">
+                    <img className="headshot" src={process.env.PUBLIC_URL + '/badgePhoto.jpg'} alt="logo" />
+                        <h3 className="mt-3">
+                            <Link
+                                className="underline"
+                                to="/experience"
+                            >
+                                Blaise Willoughby
+                            </Link>
+                        </h3>
+                    </div>
+
+                    <div className="col-lg-1 text-center Me">
+                        <h1>hi</h1>
+                        
+                    </div>
+                </div> */}
             </div>
         );
     }
