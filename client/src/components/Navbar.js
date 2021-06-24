@@ -48,11 +48,23 @@ class Navbar extends Component {
                         {/* <form class="resume d-flex">
                             <button class="resume btn btn-success">View Resume</button>
                         </form> */}
-                        <a className="resume" href={Pdf} without rel="noopener noreferrer" target="_blank">
-                            <button className="btn btn-success"trailingIcon="picture_as_pdf" label="Resume">
-                                View Resume
-                            </button>
-                        </a>
+                        <div className="Navbar-buttons">
+                            <a className="resume" href="https://www.linkedin.com/in/blaise-willoughby-081368156/" without rel="noopener noreferrer" target="_blank">
+                                <button className="btn btn-success" trailingIcon="picture_as_pdf" label="Resume">
+                                    LinkedIn
+                                </button>
+                            </a>
+                            <a className="resume" href="https://github.com/BlaiseTheGreat" without rel="noopener noreferrer" target="_blank">
+                                <button className="btn btn-success" trailingIcon="picture_as_pdf" label="Resume">
+                                    Github
+                                </button>
+                            </a>
+                            <a className="resume" href={Pdf} without rel="noopener noreferrer" target="_blank">
+                                <button className="btn btn-success" trailingIcon="picture_as_pdf" label="Resume">
+                                    View Resume
+                                </button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </nav>
