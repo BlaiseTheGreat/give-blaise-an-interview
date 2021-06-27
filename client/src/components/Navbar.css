@@ -10,3 +10,7 @@
 .navbar-brand {
     font-family: 'Roboto Mono', monospace;
 }
+
+#nav {
+    z-index: 9999;
+}
