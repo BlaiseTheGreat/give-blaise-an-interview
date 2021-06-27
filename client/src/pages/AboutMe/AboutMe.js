@@ -48,7 +48,7 @@ class AboutMe extends Component {
                         </h3>
                     </div>
                 </div>
-                <div className="row">
+                {/* <div className="row">
                     <div className="col-lg-4 text-center">
                     <img className="headshot" src={process.env.PUBLIC_URL + '/badgePhoto.jpg'} alt="logo" />
                         <h3 className="mt-3">
@@ -60,7 +60,7 @@ class AboutMe extends Component {
                             </Link>
                         </h3>
                     </div>
-                </div>
+                </div> */}
             </div>
         );
     }
