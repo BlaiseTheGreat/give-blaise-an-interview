@@ -35,19 +35,9 @@ class Navbar extends Component {
                             <li className="nav-item">
                                 <NavLink exact className="nav-link" to="/fullstackcomments">RESTful API</NavLink>
                             </li>
-                            {/* <li className="nav-item">
-                                <NavLink exact className="nav-link" to="/fullstackcomments/login">Log in</NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink exact className="nav-link" to="/fullstackcomments/signup">Sign up</NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink exact className="nav-link" to="/fullstackcomments/createcomment">Create Comment</NavLink>
-                            </li> */}
+
                         </ul>
-                        {/* <form class="resume d-flex">
-                            <button class="resume btn btn-success">View Resume</button>
-                        </form> */}
+
                         <div className="Navbar-buttons">
                             <a className="resume" href="https://www.linkedin.com/in/blaise-willoughby-081368156/" without rel="noopener noreferrer" target="_blank">
                                 <button className="btn btn-success" trailingIcon="picture_as_pdf" label="Resume">
